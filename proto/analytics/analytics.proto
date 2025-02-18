@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package analytics;
+option go_package = "reshetnyak.analytics.v1;analiticsv1";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service Analytics {
+  rpc SendEvent (Event) returns (google.protobuf.Empty);
+}
+
+message Event {
+  string name = 1;
+  google.protobuf.Timestamp date = 2;
+}
+
